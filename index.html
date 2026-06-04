@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vula Energy — Unlock the Gas</title>
+  <meta name="description" content="Vula Energy converts vehicles to LPG autogas. Save up to 45% on fuel costs. SANS certified. KwaZulu-Natal, South Africa.">
+  <meta property="og:title" content="Vula Energy — Unlock the Gas">
+  <meta property="og:description" content="South Africa's premier LPG autogas vehicle conversion specialists. Save 35–45% on fuel. SANS 10087-6 certified.">
+  <meta property="og:image" content="vula-energy-logo.png">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;1,200;1,300&family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:          #090d0f;
+      --black-2:        #0f1518;
+      --black-3:        #161e22;
+      --white:          #ffffff;
+      --white-dim:      #aaaaaa;
+      --white-muted:    #555555;
+      --brand-navy:     #1a3a7a;
+      --brand-green:    #2e8b3a;
+      --brand-flame:    #E8650A;
+      --brand-blue:     #1e6fbf;
+      --accent:         #E8650A;
+      --accent-dim:     rgba(232, 101, 10, 0.25);
+      --accent-green:   #2e8b3a;
+      --border:         rgba(255,255,255,0.06);
+      --border-accent:  rgba(232,101,10,0.35);
+      --border-green:   rgba(46,139,58,0.35);
+      --font-display:   'Cormorant Garamond', serif;
+      --font-body:      'Montserrat', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: background 0.4s ease, backdrop-filter 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(9,13,15,0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom-color: rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-img-wrap {
+      background: white;
+      padding: 4px 10px;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav-logo-img-wrap img {
+      height: 32px;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: #888;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--white);
+      transition: all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.65) 50%, rgba(9,13,15,1) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .hero-logo-wrap {
+      display: inline-block;
+      background: rgba(255,255,255,0.05);
+      padding: 12px 24px;
+      border-radius: 4px;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards 0s;
+    }
+    .hero-logo-wrap img { height: 120px; display: block; }
+    .hero-rule {
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 24px;
+      animation: drawRule 0.6s ease forwards 0.2s;
+    }
+    .hero-headline {
+      font-family: var(--font-display);
+      font-weight: 200;
+      font-size: 11vw;
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 1.2s cubic-bezier(0.16,1,0.3,1) forwards 0.4s;
+    }
+    .hero-sub {
+      margin-top: 24px;
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      color: #888888;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards 1s;
+    }
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 48px;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards 1.4s;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      padding: 14px 32px;
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn-primary:hover { background: var(--accent); color: var(--white); }
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--white);
+      background: transparent;
+      padding: 14px 32px;
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.08); }
+    .hero-chevron {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: var(--accent);
+      font-size: 22px;
+      animation: pulse 2.4s ease-in-out infinite;
+      cursor: pointer;
+    }
+
+    /* ─── SECTION 2: THE NUMBER ─── */
+    #the-number {
+      background: var(--black);
+      min-height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .section-label {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.45em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .stat-hero {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 200;
+      font-size: 20vw;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-hero .pct { color: var(--accent-green); }
+    .rule-accent {
+      display: block;
+      height: 1px;
+      background: var(--accent);
+      margin: 24px auto;
+    }
+    .body-copy {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 13px;
+      line-height: 2;
+      color: var(--white-dim);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .source-tag {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: #444;
+      text-transform: uppercase;
+      margin-top: 20px;
+    }
+
+    /* ─── SECTION 3: FULL BLEED IMAGE ─── */
+    #fleet-image {
+      position: relative;
+      height: 70vh;
+      overflow: hidden;
+    }
+    #fleet-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(9,13,15,0.15) 0%, rgba(9,13,15,0.65) 100%);
+    }
+    .image-caption {
+      position: absolute;
+      bottom: 0; left: 0;
+      padding: 48px 60px;
+    }
+    .image-caption-label {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .image-caption-text {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 3.5vw;
+      color: var(--white);
+      max-width: 600px;
+      line-height: 1.2;
+    }
+
+    /* ─── SECTION 4: THREE PILLARS ─── */
+    #pillars {
+      background: var(--black-2);
+      padding: 100px 60px;
+    }
+    .pillars-header { margin-bottom: 64px; }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+    .pillar {
+      padding: 0 48px;
+      position: relative;
+    }
+    .pillar:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 1px;
+      background: rgba(232,101,10,0.2);
+    }
+    .pillar:first-child { padding-left: 0; }
+    .pillar:last-child { padding-right: 0; }
+    .pillar-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 2.2vw;
+      color: var(--white);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .pillar-stat {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 200;
+      font-size: 4.5vw;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .pillar-body {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 12px;
+      color: #888;
+      line-height: 1.9;
+    }
+    .green { color: var(--accent-green); }
+    .flame { color: var(--accent); }
+
+    /* ─── SECTION 5: MANIFESTO ─── */
+    #manifesto {
+      background: var(--black-3);
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .manifesto-inner { max-width: 860px; }
+    .manifesto-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 200;
+      font-size: 4.5vw;
+      color: var(--white);
+      line-height: 1.35;
+      margin-bottom: 40px;
+    }
+    .manifesto-attr {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: #444;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .manifesto-note {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: #333;
+      text-transform: uppercase;
+    }
+
+    /* ─── SECTION 6: PROCESS ─── */
+    #process {
+      background: var(--black);
+      padding: 100px 60px;
+    }
+    .process-header { max-width: 1100px; margin: 0 auto 64px; }
+    .process-title {
+      font-family: var(--font-display);
+      font-weight: 200;
+      font-size: 3.5vw;
+      color: var(--white);
+      margin-top: 16px;
+      line-height: 1.15;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .step {
+      position: relative;
+    }
+    .step-watermark {
+      position: absolute;
+      top: -20px; left: -10px;
+      font-family: var(--font-display);
+      font-weight: 200;
+      font-size: 10vw;
+      color: rgba(232,101,10,0.08);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+    .step-content { position: relative; z-index: 1; }
+    .step-label {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .step-name {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 1.8vw;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .step-desc {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 12px;
+      color: #888;
+      line-height: 1.8;
+    }
+
+    /* ─── SECTION 7: CALCULATOR ─── */
+    #calculator {
+      background: var(--black-2);
+      padding: 100px 60px;
+    }
+    .calc-header { margin-bottom: 56px; }
+    .calc-title {
+      font-family: var(--font-display);
+      font-weight: 200;
+      font-size: 3.5vw;
+      color: var(--white);
+      margin-top: 16px;
+      line-height: 1.15;
+    }
+    .calc-inner { max-width: 800px; }
+    .calc-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .calc-row-left { flex: 1; }
+    .calc-input-label {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: block;
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: 2px solid var(--black);
+      box-shadow: 0 0 8px rgba(232,101,10,0.4);
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: 2px solid var(--black);
+    }
+    .calc-value {
+      font-family: var(--font-display);
+      font-weight: 200;
+      font-size: 2.5vw;
+      color: var(--white);
+      min-width: 120px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    input[type="number"] {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      font-family: var(--font-display);
+      font-size: 1.8vw;
+      font-weight: 200;
+      width: 120px;
+      text-align: right;
+      outline: none;
+      padding: 4px 0;
+      transition: border-color 0.3s;
+    }
+    input[type="number"]:focus { border-bottom-color: var(--accent); }
+    .number-input-wrap {
+      display: flex;
+      align-items: flex-end;
+      gap: 24px;
+    }
+    .number-input-group { flex: 1; }
+    .calc-output {
+      border: 1px solid rgba(232,101,10,0.25);
+      padding: 48px;
+      margin-top: 48px;
+    }
+    .output-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 32px;
+    }
+    .output-label {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .output-value {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 200;
+      font-size: 5vw;
+      color: var(--accent-green);
+      line-height: 1;
+      transition: all 0.3s ease;
+    }
+    .output-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin-bottom: 24px;
+    }
+    .output-payback {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 11px;
+      color: #888;
+      text-align: center;
+    }
+    .calc-footnote {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 11px;
+      color: #888;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .calc-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    /* ─── SECTION 8: PROOF ─── */
+    #proof {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #proof img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .proof-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(9,13,15,0.65);
+    }
+    .proof-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .proof-label {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.4em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .proof-stat {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 200;
+      font-size: 9vw;
+      color: var(--white);
+      line-height: 1;
+    }
+    .proof-sub {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--white-dim);
+      text-transform: uppercase;
+      margin-top: 16px;
+    }
+    .proof-source {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: #555;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    /* ─── SECTION 9: ABOUT ─── */
+    #about {
+      background: var(--black);
+      padding: 100px 60px;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      max-width: 1200px;
+    }
+    .about-eyebrow {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.4em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .about-title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 200;
+      font-size: 4vw;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 40px;
+    }
+    .about-body {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 13px;
+      color: #999;
+      line-height: 2.1;
+      max-width: 520px;
+    }
+    .about-cta {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-top: 32px;
+      cursor: pointer;
+      transition: text-decoration 0.2s;
+    }
+    .about-cta:hover { text-decoration: underline; }
+    .about-logo-wrap {
+      background: white;
+      padding: 8px 16px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-top: 40px;
+    }
+    .about-logo-wrap img { height: 80px; display: block; }
+
+    /* ─── SECTION 10: CREDENTIALS ─── */
+    #credentials {
+      background: var(--black-2);
+      padding: 80px 60px;
+    }
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 64px;
+    }
+    .credential {
+      padding: 0 40px;
+      position: relative;
+    }
+    .credential:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 1px;
+      background: rgba(232,101,10,0.15);
+    }
+    .credential:first-child { padding-left: 0; }
+    .credential:last-child { padding-right: 0; }
+    .credential-title {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .credential-detail {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 11px;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    /* ─── SECTION 11: CONTACT ─── */
+    #contact {
+      background: var(--black);
+      padding: 100px 60px;
+    }
+    .contact-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-title {
+      font-family: var(--font-display);
+      font-weight: 200;
+      font-size: 5.5vw;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .contact-sub {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 13px;
+      color: #888;
+      max-width: 480px;
+      margin: 0 auto 56px;
+      line-height: 1.9;
+    }
+    .form-fields { text-align: left; }
+    .form-field {
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      background: transparent;
+      color: white;
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      padding: 16px 0;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.3s;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .form-field:focus { border-bottom-color: var(--accent); }
+    .form-field::placeholder { color: #444; letter-spacing: 0.05em; }
+    .form-group { margin-bottom: 8px; }
+    .btn-submit {
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      padding: 18px 48px;
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 40px;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn-submit:hover { background: var(--accent); color: var(--white); }
+    .contact-footer-note {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: #333;
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #000;
+      padding: 48px 60px;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-row1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+    .footer-logo-wrap {
+      background: white;
+      padding: 6px 12px;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .footer-logo-wrap img { height: 56px; display: block; }
+    .footer-links {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: #444;
+      text-transform: uppercase;
+    }
+    .footer-row2 {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .footer-legal {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      color: #333;
+      line-height: 1.8;
+    }
+    .footer-social {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 10px;
+      color: #333;
+      text-align: right;
+      line-height: 1.8;
+    }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal:nth-child(2) { transition-delay: 0.1s; }
+    .reveal:nth-child(3) { transition-delay: 0.2s; }
+    .reveal:nth-child(4) { transition-delay: 0.3s; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes drawRule {
+      from { width: 0; }
+      to   { width: 48px; }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .pillars-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+      }
+      .pillar:nth-child(2)::after { display: none; }
+      .pillar:first-child { padding-left: 0; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .credentials-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+      .credential::after { display: none; }
+      .credential { padding: 0; border-bottom: 1px solid rgba(232,101,10,0.12); padding-bottom: 32px; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-title { font-size: 6vw; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(9,13,15,0.98);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 14px; letter-spacing: 0.2em; }
+      .hamburger { display: flex; z-index: 1001; }
+      .hero-headline { font-size: 18vw; }
+      .hero-sub { font-size: 9px; letter-spacing: 0.2em; }
+      .hero-logo-wrap img { height: 80px; }
+      .stat-hero { font-size: 22vw; }
+      .section-label { font-size: 9px; }
+      #the-number { padding: 60px 24px; }
+      #pillars { padding: 60px 24px; }
+      .pillars-grid { grid-template-columns: 1fr; gap: 0; }
+      .pillar {
+        padding: 32px 0;
+        border-bottom: 1px solid rgba(232,101,10,0.15);
+      }
+      .pillar::after { display: none; }
+      .pillar-title { font-size: 5vw; }
+      .pillar-stat { font-size: 12vw; }
+      #manifesto { padding: 60px 24px; }
+      .manifesto-quote { font-size: 7vw; }
+      #process { padding: 60px 24px; }
+      .steps-grid { grid-template-columns: 1fr; gap: 40px; }
+      .process-title { font-size: 7vw; }
+      .step-name { font-size: 5vw; }
+      #calculator { padding: 60px 24px; }
+      .calc-title { font-size: 7vw; }
+      .calc-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .calc-value { font-size: 6vw; text-align: left; }
+      input[type="number"] { font-size: 5vw; }
+      .output-cols { grid-template-columns: 1fr; gap: 24px; }
+      .output-value { font-size: 10vw; }
+      .calc-output { padding: 32px 24px; }
+      .image-caption { padding: 24px 24px; }
+      .image-caption-text { font-size: 5vw; }
+      #about { padding: 60px 24px; }
+      .about-title { font-size: 8vw; }
+      #credentials { padding: 60px 24px; }
+      .credentials-grid { grid-template-columns: 1fr; }
+      #contact { padding: 60px 24px; }
+      .contact-title { font-size: 10vw; }
+      footer { padding: 40px 24px; }
+      .footer-row1 { flex-direction: column; gap: 24px; align-items: flex-start; }
+      .footer-row2 { flex-direction: column; gap: 16px; }
+      .footer-social { text-align: left; }
+      .number-input-wrap { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">
+      <span class="nav-logo-img-wrap">
+        <img src="vula-energy-logo.png" alt="Vula Energy" height="32">
+      </span>
+    </a>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#pillars">Conversions</a></li>
+      <li><a href="#process">Technology</a></li>
+      <li><a href="#calculator">Savings</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── SECTION 1: HERO ─── -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-logo-wrap">
+        <img src="vula-energy-logo.png" alt="Vula Energy">
+      </div>
+      <div class="hero-rule"></div>
+      <h1 class="hero-headline">UNLOCK<br>THE GAS.</h1>
+      <p class="hero-sub">South Africa's Premier Autogas Conversion Specialists</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Get a Quote</a>
+        <a href="#calculator" class="btn-secondary">Calculate Your Savings</a>
+      </div>
+    </div>
+    <div class="hero-chevron" onclick="document.getElementById('the-number').scrollIntoView({behavior:'smooth'})">∨</div>
+  </section>
+
+  <!-- ─── SECTION 2: THE NUMBER ─── -->
+  <section id="the-number">
+    <div>
+      <p class="section-label reveal">The Case for Autogas</p>
+      <div class="stat-hero reveal" id="counter-el">0<span class="pct">%</span></div>
+      <span class="rule-accent reveal" style="width:70px;"></span>
+      <p class="body-copy reveal">
+        Less. On every litre of fuel. Proven by South African fleets
+        running on LPG autogas versus petrol. That is not a forecast.
+        It is a measured result.
+      </p>
+      <p class="source-tag reveal">Source: Octotel Fleet Case Study · 4,703 km · 49 Days · 44.2% Saving</p>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 3: FULL BLEED IMAGE ─── -->
+  <section id="fleet-image">
+    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&q=80" alt="Fleet vehicle" loading="lazy">
+    <div class="image-overlay"></div>
+    <div class="image-caption">
+      <p class="image-caption-label reveal">Precision Engineering</p>
+      <p class="image-caption-text reveal">Every conversion. SANS 10087-6 certified.<br>Your warranty, intact.</p>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 4: THREE PILLARS ─── -->
+  <section id="pillars">
+    <div class="pillars-header reveal">
+      <p class="section-label">Why Vula Energy</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <p class="pillar-title">Cost</p>
+        <span class="rule-accent" style="width:32px; display:block; margin-bottom:16px;"></span>
+        <p class="pillar-stat green">35–45%</p>
+        <p class="pillar-body">Less per litre on LPG<br>vs petrol. No tricks.<br>No asterisks.<br>Just physics.</p>
+      </div>
+      <div class="pillar reveal">
+        <p class="pillar-title">Certified</p>
+        <span class="rule-accent" style="width:32px; display:block; margin-bottom:16px;"></span>
+        <p class="pillar-stat"><span style="color:var(--white)">SANS</span> <span class="flame">10087-6</span></p>
+        <p class="pillar-body">Every installation meets South African National Standards. Compliant. Warranted. Safe.</p>
+      </div>
+      <div class="pillar reveal">
+        <p class="pillar-title">Proven</p>
+        <span class="rule-accent" style="width:32px; display:block; margin-bottom:16px;"></span>
+        <p class="pillar-stat green">R16,444</p>
+        <p class="pillar-body">Rand saved per vehicle per year. Octotel fleet. South Africa. Measured. Verified.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 5: MANIFESTO ─── -->
+  <section id="manifesto">
+    <div class="manifesto-inner">
+      <span class="rule-accent reveal" style="width:70px;margin-bottom:48px;"></span>
+      <blockquote class="manifesto-quote reveal">
+        "Fuel prices are not coming down anytime soon.<br>
+        Expecting your fleet to absorb those costs<br>
+        is not a strategy."
+      </blockquote>
+      <p class="manifesto-attr reveal">Gina Giani · CEO, DFSK South Africa · April 2026</p>
+      <p class="manifesto-note reveal">DFSK South Africa: First OEM to endorse LPG autogas conversions in SA</p>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 6: PROCESS ─── -->
+  <section id="process">
+    <div class="process-header">
+      <p class="section-label reveal">The Process</p>
+      <h2 class="process-title reveal">From assessment to savings.<br>In one day.</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="step-watermark">01</div>
+        <div class="step-content">
+          <p class="step-label">Step 01</p>
+          <span class="rule-accent" style="width:24px; display:block; margin-bottom:16px;"></span>
+          <h3 class="step-name">Vehicle<br>Assessment</h3>
+          <p class="step-desc">Your vehicle is checked for LPG compatibility. Takes 1 hour. No obligation.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-watermark">02</div>
+        <div class="step-content">
+          <p class="step-label">Step 02</p>
+          <span class="rule-accent" style="width:24px; display:block; margin-bottom:16px;"></span>
+          <h3 class="step-name">Certified<br>Installation</h3>
+          <p class="step-desc">SANS-compliant bi-fuel system fitted by certified technicians. Takes 1 day.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-watermark">03</div>
+        <div class="step-content">
+          <p class="step-label">Step 03</p>
+          <span class="rule-accent" style="width:24px; display:block; margin-bottom:16px;"></span>
+          <h3 class="step-name">CoC<br>Issued</h3>
+          <p class="step-desc">Certificate of Compliance issued. Your original warranty is protected.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-watermark">04</div>
+        <div class="step-content">
+          <p class="step-label">Step 04</p>
+          <span class="rule-accent" style="width:24px; display:block; margin-bottom:16px;"></span>
+          <h3 class="step-name">Drive<br>&amp; Save</h3>
+          <p class="step-desc">Immediate fuel cost reduction. From Day 1. The gas is unlocked.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 7: CALCULATOR ─── -->
+  <section id="calculator">
+    <div class="calc-header">
+      <p class="section-label reveal">Fuel Savings Calculator</p>
+      <h2 class="calc-title reveal">How much are you leaving<br>on the table?</h2>
+    </div>
+    <div class="calc-inner">
+      <div class="calc-row reveal">
+        <div class="calc-row-left">
+          <label class="calc-input-label" for="slider-vehicles">Vehicles in Your Fleet</label>
+          <input type="range" id="slider-vehicles" min="1" max="200" value="10" step="1">
+        </div>
+        <div class="calc-value" id="val-vehicles">10</div>
+      </div>
+      <div class="calc-row reveal">
+        <div class="calc-row-left">
+          <label class="calc-input-label" for="slider-km">Kilometres per Vehicle / Month</label>
+          <input type="range" id="slider-km" min="500" max="10000" value="3000" step="100">
+        </div>
+        <div class="calc-value" id="val-km">3,000 km</div>
+      </div>
+      <div class="number-input-wrap reveal">
+        <div class="number-input-group">
+          <label class="calc-input-label" for="input-petrol">Current Petrol Price (R/litre)</label>
+          <input type="number" id="input-petrol" value="24.50" step="0.10" min="0">
+        </div>
+        <div class="number-input-group">
+          <label class="calc-input-label" for="input-lpg">LPG Price (R/litre)</label>
+          <input type="number" id="input-lpg" value="13.50" step="0.10" min="0">
+        </div>
+      </div>
+
+      <div class="calc-output reveal">
+        <div class="output-cols">
+          <div>
+            <p class="output-label">Monthly Fleet Saving</p>
+            <p class="output-value" id="output-monthly">R 0</p>
+          </div>
+          <div>
+            <p class="output-label">Annual Fleet Saving</p>
+            <p class="output-value" id="output-annual">R 0</p>
+          </div>
+        </div>
+        <div class="output-divider"></div>
+        <p class="output-payback">
+          Estimated payback period: <strong id="output-payback" style="color:var(--white-dim)">— months</strong> · Based on R26,000/vehicle conversion (ex. VAT)
+        </p>
+      </div>
+
+      <p class="calc-footnote reveal">These are conservative estimates. Your actual saving depends on vehicle type and usage.</p>
+      <div class="calc-cta reveal">
+        <a href="#contact" class="btn-primary">Get Your Fleet Assessment →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 8: PROOF ─── -->
+  <section id="proof">
+    <img src="https://images.unsplash.com/photo-1577948000111-9c970dfe3743?w=1920&q=80" alt="South African cityscape" loading="lazy">
+    <div class="proof-overlay"></div>
+    <div class="proof-content">
+      <p class="proof-label reveal">Verified. South Africa. 2023.</p>
+      <p class="proof-stat reveal">R16,444</p>
+      <span class="rule-accent reveal" style="width:60px;margin:16px auto;"></span>
+      <p class="proof-sub reveal">Saved per vehicle. Per year.</p>
+      <p class="proof-source reveal">Octotel Fleet Case Study · 4,703 km · 49 Days · 44.2% Actual Saving</p>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 9: ABOUT ─── -->
+  <section id="about">
+    <div class="about-grid">
+      <div>
+        <p class="about-eyebrow reveal">About Us</p>
+        <h2 class="about-title reveal">Why We Do<br>What We Do.</h2>
+        <span class="rule-accent reveal" style="width:48px;display:block;margin-bottom:40px;"></span>
+        <div class="about-logo-wrap reveal">
+          <img src="vula-energy-logo.png" alt="Vula Energy" height="80">
+        </div>
+      </div>
+      <div>
+        <p class="about-body reveal">
+          Vula Energy was founded on a single, inescapable truth:
+          South African fuel costs are structurally, permanently high.<br><br>
+          Every fleet operator, every taxi owner, every small business
+          burning petrol today is paying more than they need to.<br><br>
+          We convert vehicles to run on LPG autogas — cleanly, safely,
+          and in full compliance with SANS 10087-6. Our conversions
+          produce a Certificate of Compliance. Your warranty stays
+          intact. Your savings start immediately.<br><br>
+          We are based in KwaZulu-Natal and serve fleets and private
+          operators across South Africa.<br><br>
+          The saving is real.<br>
+          The process is simple.<br>
+          The gas is unlocked.
+        </p>
+        <a href="#contact" class="about-cta reveal">Learn More About Us →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 10: CREDENTIALS ─── -->
+  <section id="credentials">
+    <p class="section-label reveal">Compliance &amp; Trust</p>
+    <div class="credentials-grid">
+      <div class="credential reveal">
+        <p class="credential-title">SANS 10087-6 Compliant</p>
+        <span class="rule-accent" style="width:28px;display:block;margin-bottom:12px;"></span>
+        <p class="credential-detail">All installations certified<br>against South African<br>National Standards.</p>
+      </div>
+      <div class="credential reveal">
+        <p class="credential-title">Level 1 B-BBEE Contributor</p>
+        <span class="rule-accent" style="width:28px;display:block;margin-bottom:12px;"></span>
+        <p class="credential-detail">Proud South African compliance.<br>Transformation is not a checkbox<br>— it is our commitment.</p>
+      </div>
+      <div class="credential reveal">
+        <p class="credential-title">Warranty Protected</p>
+        <span class="rule-accent" style="width:28px;display:block;margin-bottom:12px;"></span>
+        <p class="credential-detail">LPG conversion does not void<br>your vehicle warranty. We provide<br>documentation for your insurer.</p>
+      </div>
+      <div class="credential reveal">
+        <p class="credential-title">OEM Endorsed Pathway</p>
+        <span class="rule-accent" style="width:28px;display:block;margin-bottom:12px;"></span>
+        <p class="credential-detail">DFSK South Africa confirmed<br>April 2026: LPG conversions do not<br>affect warranty when SANS-compliant.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 11: CONTACT ─── -->
+  <section id="contact">
+    <div class="contact-inner">
+      <span class="rule-accent reveal" style="width:60px;margin:0 auto 48px;"></span>
+      <h2 class="contact-title reveal">Unlock Your Fleet.</h2>
+      <p class="contact-sub reveal">
+        Get a no-obligation assessment. We calculate your exact saving based
+        on your fleet size, vehicle types, and monthly kilometres.
+      </p>
+      <form class="form-fields reveal" onsubmit="return false;">
+        <div class="form-group">
+          <input class="form-field" type="text" placeholder="YOUR NAME" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <input class="form-field" type="text" placeholder="COMPANY NAME" autocomplete="organization">
+        </div>
+        <div class="form-group">
+          <input class="form-field" type="text" placeholder="NUMBER OF VEHICLES">
+        </div>
+        <div class="form-group">
+          <input class="form-field" type="email" placeholder="EMAIL ADDRESS" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <input class="form-field" type="tel" placeholder="PHONE NUMBER" autocomplete="tel">
+        </div>
+        <button type="submit" class="btn-submit">Submit Enquiry →</button>
+      </form>
+      <p class="contact-footer-note reveal">We respond within 24 hours. · Based in KwaZulu-Natal. · Serving South Africa nationally.</p>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-row1">
+      <div class="footer-logo-wrap">
+        <img src="vula-energy-logo.png" alt="Vula Energy" height="56">
+      </div>
+      <p class="footer-links">Conversions · Technology · Savings · About · Contact</p>
+    </div>
+    <div class="footer-row2">
+      <div class="footer-legal">
+        © 2026 Vula Energy (Pty) Ltd<br>
+        SANS 10087-6 Certified Installer
+      </div>
+      <div class="footer-social">
+        Instagram · LinkedIn · WhatsApp<br>
+        KwaDukuza, KwaZulu-Natal, South Africa
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── NAV SCROLL ───
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
+    });
+
+    // ─── HAMBURGER ───
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    // ─── SMOOTH SCROLL ───
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+      });
+    });
+
+    // ─── SCROLL REVEAL ───
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ─── COUNTER ANIMATION ───
+    function animateCounter(el, end, duration) {
+      let startTime = null;
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const val = Math.floor(eased * end);
+        el.innerHTML = val + '<span class="pct">%</span>';
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    const counterEl = document.getElementById('counter-el');
+    let counterFired = false;
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !counterFired) {
+          counterFired = true;
+          animateCounter(counterEl, 45, 2200);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counterObserver.observe(counterEl);
+
+    // ─── SAVINGS CALCULATOR ───
+    const sliderVehicles = document.getElementById('slider-vehicles');
+    const sliderKm       = document.getElementById('slider-km');
+    const inputPetrol    = document.getElementById('input-petrol');
+    const inputLPG       = document.getElementById('input-lpg');
+    const valVehicles    = document.getElementById('val-vehicles');
+    const valKm          = document.getElementById('val-km');
+    const outputMonthly  = document.getElementById('output-monthly');
+    const outputAnnual   = document.getElementById('output-annual');
+    const outputPayback  = document.getElementById('output-payback');
+
+    sliderVehicles.addEventListener('input', () => {
+      valVehicles.textContent = parseInt(sliderVehicles.value).toLocaleString('en-ZA');
+      calculate();
+    });
+    sliderKm.addEventListener('input', () => {
+      valKm.textContent = parseInt(sliderKm.value).toLocaleString('en-ZA') + ' km';
+      calculate();
+    });
+    inputPetrol.addEventListener('input', calculate);
+    inputLPG.addEventListener('input', calculate);
+
+    function calculate() {
+      const vehicles    = parseInt(sliderVehicles.value) || 0;
+      const kmPerMonth  = parseInt(sliderKm.value) || 0;
+      const petrolPrice = parseFloat(inputPetrol.value) || 0;
+      const lpgPrice    = parseFloat(inputLPG.value) || 0;
+
+      const avgL100km     = 9.5;
+      const lpgEnergyAdj  = 1.166;
+
+      const monthlyPetrolPerVehicle = (kmPerMonth / 100) * avgL100km * petrolPrice;
+      const monthlyLPGPerVehicle    = (kmPerMonth / 100) * avgL100km * lpgEnergyAdj * lpgPrice;
+      const savingPerVehicle        = monthlyPetrolPerVehicle - monthlyLPGPerVehicle;
+      const monthlyFleetSaving      = savingPerVehicle * vehicles;
+      const annualFleetSaving       = monthlyFleetSaving * 12;
+      const conversionCost          = 26000 * vehicles;
+      const paybackMonths           = (savingPerVehicle > 0 && monthlyFleetSaving > 0)
+        ? Math.round(conversionCost / monthlyFleetSaving)
+        : 0;
+
+      outputMonthly.textContent = 'R ' + Math.max(0, monthlyFleetSaving).toLocaleString('en-ZA', {maximumFractionDigits: 0});
+      outputAnnual.textContent  = 'R ' + Math.max(0, annualFleetSaving).toLocaleString('en-ZA', {maximumFractionDigits: 0});
+      outputPayback.textContent = paybackMonths > 0 ? paybackMonths + ' months' : '—';
+    }
+
+    calculate();
+  </script>
+</body>
+</html>
