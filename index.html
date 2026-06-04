@@ -937,6 +937,168 @@
       line-height: 1.8;
     }
 
+    /* ─── FAQ SECTION ─── */
+    #faq {
+      background: var(--bg-white);
+      padding: 100px 60px;
+      border-top: 1px solid var(--border-light);
+    }
+    .faq-inner { max-width: 860px; }
+    .faq-header { margin-bottom: 64px; }
+    .faq-title {
+      font-family: var(--font-display);
+      font-weight: 200;
+      font-size: 3.5vw;
+      color: var(--text-navy);
+      margin-top: 16px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .faq-subtitle {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 560px;
+    }
+    .faq-group { margin-bottom: 56px; }
+    .faq-category {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 9px;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 4px;
+      padding-bottom: 16px;
+      border-bottom: 1.5px solid var(--border-light);
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--divider);
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 13px;
+      color: var(--text-navy);
+      line-height: 1.5;
+      transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--green); }
+    .faq-q[aria-expanded="true"] { color: var(--green); }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .faq-icon::before,
+    .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: var(--text-mid);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease, background 0.2s;
+    }
+    .faq-icon::before { width: 8px; height: 1.5px; }
+    .faq-icon::after  { width: 1.5px; height: 8px; }
+    .faq-q[aria-expanded="true"] .faq-icon {
+      border-color: var(--green);
+      background: var(--green-dim);
+    }
+    .faq-q[aria-expanded="true"] .faq-icon::before,
+    .faq-q[aria-expanded="true"] .faq-icon::after { background: var(--green); }
+    .faq-q[aria-expanded="true"] .faq-icon::after  { transform: rotate(90deg); opacity: 0; }
+    .faq-a {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.38s cubic-bezier(0.16,1,0.3,1);
+    }
+    .faq-a.open { grid-template-rows: 1fr; }
+    .faq-a-inner {
+      overflow: hidden;
+      padding: 0;
+      transition: padding 0.38s cubic-bezier(0.16,1,0.3,1);
+    }
+    .faq-a.open .faq-a-inner { padding: 0 0 28px; }
+    .faq-a-inner p {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 12.5px;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin-bottom: 14px;
+    }
+    .faq-a-inner p:last-child { margin-bottom: 0; }
+    .faq-bottomline {
+      background: var(--bg-green-light);
+      border-left: 3px solid var(--green);
+      padding: 16px 20px;
+      margin: 20px 0;
+      border-radius: 0 3px 3px 0;
+    }
+    .faq-bl-label {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .faq-bottomline p {
+      color: var(--text-dark) !important;
+      font-size: 12px !important;
+      margin-bottom: 0 !important;
+    }
+    .faq-list {
+      padding-left: 18px;
+      margin: 12px 0 14px;
+    }
+    .faq-list li {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 12.5px;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin-bottom: 6px;
+    }
+    .faq-list-ol { list-style: decimal; }
+    .faq-source {
+      font-size: 10px !important;
+      color: var(--text-muted) !important;
+      letter-spacing: 0.03em;
+      margin-top: 16px !important;
+      padding-top: 12px;
+      border-top: 1px solid var(--divider);
+    }
+    .faq-cta {
+      margin-top: 48px;
+    }
+    @media (max-width: 768px) {
+      #faq { padding: 60px 24px; }
+      .faq-title { font-size: 7.5vw; }
+      .faq-q { font-size: 12px; }
+    }
+
     /* ─── SCROLL REVEAL ─── */
     .reveal {
       opacity: 0;
@@ -1063,6 +1225,7 @@
       <li><a href="#pillars">Conversions</a></li>
       <li><a href="#process">Technology</a></li>
       <li><a href="#calculator">Savings</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -1327,6 +1490,328 @@
     </div>
   </section>
 
+  <!-- ─── SECTION: FAQ ─── -->
+  <section id="faq">
+    <div class="faq-inner">
+      <div class="faq-header reveal">
+        <p class="section-label">Fleet Operator's Guide</p>
+        <h2 class="faq-title">15 Questions Every Fleet<br>Manager Asks — Answered.</h2>
+        <p class="faq-subtitle">Fact-checked answers based on verified South African market data. Click any question to read the full answer.</p>
+      </div>
+
+      <div class="faq-group reveal">
+        <p class="faq-category">Financial Questions</p>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>How much will we actually save on fuel, and where does that number come from?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>LPG has generally traded at a meaningful discount to petrol at the pump. Industry sources and independent case studies indicate an indicative discount in the range of 35–45%, though the precise spread varies by region, supplier, and fill cycle timing.</p>
+              <p>The most useful South African reference is the <strong>Octotel fleet case study</strong>, which tracked actual LPG consumption on converted commercial vehicles over 49 days: 520.08 litres of LPG consumed over 4,703.93 km — a <strong>44.2% reduction in fuel cost</strong>, or R3,075.49 saved in that period alone. Annualised, that is approximately <strong>R16,444 per vehicle</strong>.</p>
+              <p>That is a real South African company, real vehicles, real fuel prices, real rands.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>For a fleet running 10 vehicles at similar utilisation, that represents over <strong>R160,000 in annual fuel savings</strong>. For 50 vehicles, the figure exceeds <strong>R820,000</strong>. A dedicated fleet analysis for your specific vehicles and routes will sharpen this further.</p>
+              </div>
+              <p class="faq-source">Source: Octotel fleet case study. Prins Autogas SA, June 2024.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>What does the conversion cost, and how long before we get our money back?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>LPG conversion kits for petrol-powered vehicles start at approximately <strong>R29,999 excluding VAT per vehicle</strong> for 3–4 cylinder engines. Larger engines or bespoke configurations may cost more, and a vehicle suitability assessment is conducted before any pricing is confirmed.</p>
+              <p>The payback period depends on three variables: the cost of the kit and installation; the LPG-vs-petrol price spread at the time; and your vehicles' annual kilometre coverage. Industry guidance and independent case studies indicate a <strong>typical payback range of 6–24 months</strong> for commercial fleet operators, with high-utilisation vehicles (30,000+ km p.a.) achieving payback at the faster end.</p>
+              <p>Critically, if you use a financing structure (see Q3 below), the conversion cost is spread over monthly payments designed to be lower than your monthly fuel saving — meaning your fleet can be <strong>cash-flow positive from the very first month</strong>, with no upfront capital outlay.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>Even on a cash purchase basis, a 12–18 month payback on a cost that then delivers savings for the remaining life of the vehicle represents an exceptional return. No other single operational change delivers this kind of ROI with this degree of predictability.</p>
+              </div>
+              <p class="faq-source">Source: Easyway Vehicle Solutions. Mordor Intelligence, Africa CNG/LPG Vehicle Market 2025.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>We don't have budget for a large upfront capital outlay. Does that mean LPG isn't viable for us?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Not at all — and this is one of the most important points to understand. The capital barrier is a payment structure problem, not a financial logic problem. The solution is a <strong>Fuel Savings as a Service (FSaaS)</strong> model.</p>
+              <p>Under this structure, the conversion is financed through a third-party vehicle finance partner. Instead of paying R29,000+ per vehicle upfront, your organisation pays a monthly fee. That fee is structured to be below the monthly fuel saving generated by the converted vehicle — meaning your net monthly position is improved from Day 1, with zero capex.</p>
+              <p>The deal sits in your <strong>operational budget rather than your capital expenditure budget</strong>. It does not require board approval for asset acquisition. It is a cost reduction, not an investment. This financing model has already been used successfully in Australia and Turkey, where it contributed to 38% of the national car park running on LPG.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>If your organisation is spending more on petrol each month than the financing repayment on converted vehicles, then doing nothing is actually the more expensive option. The FSaaS model makes that logic concrete and actionable.</p>
+              </div>
+              <p class="faq-source">Source: LPG B2B Fleet Market Analysis — Corrected Edition (June 2026). KNFT Energy SANTACO Proposal. Turkey LPG Market Reference: AYGAZ/OPET industry reporting.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Can we claim back any taxes on LPG fuel?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Yes. This is a significant and frequently overlooked financial benefit for VAT-registered organisations. Unlike petrol and diesel — which carry specific fuel levies and Road Accident Fund (RAF) levies that are <em>not</em> VAT-claimable — LPG is subject to standard VAT.</p>
+              <p>This means VAT-registered companies can <strong>claim back the VAT component on eligible LPG fuel purchases</strong>, effectively reducing the net cost of every litre filled. At the current standard VAT rate of 15%, this represents a non-trivial reduction in your effective LPG fuel cost, on top of the underlying price discount vs petrol.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>For a large fleet consuming thousands of litres of LPG per month, the VAT reclaim alone is a material annual saving that does not exist with petrol or diesel. Build it into your business case from day one.</p>
+              </div>
+              <p class="faq-source">Source: SARS VAT Act, Section 1. Competition Commission South Africa — Chapter 8: Pricing Regulation (LPG).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-group reveal">
+        <p class="faq-category">Technical &amp; Operational Questions</p>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Will our vehicles lose power or performance after conversion?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>No. This is one of the most persistent myths about LPG conversions, and it is definitively false for modern bi-fuel systems. Although LPG has a slightly lower energy density per litre than petrol, modern conversion kits use a state-of-the-art <strong>Electronic Control Unit (ECU)</strong> calibrated specifically to the engine being converted. The ECU continuously optimises the fuel-air mixture and injection timing to match petrol performance.</p>
+              <p>The result: the vehicle retains its current engine power output. There is <strong>no reduction in horsepower, torque, or top speed</strong>. Drivers notice no difference in vehicle behaviour. Additionally, because LPG burns cleaner than petrol (non-corrosive and additive-free), it can actually <strong>extend engine lifespan</strong> by reducing carbon deposits and wear on internal components.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>Your converted vehicle will perform identically to its pre-conversion state for all practical purposes. The only thing that changes is what you pay at the pump.</p>
+              </div>
+              <p class="faq-source">Source: Prins Autogas SA, June 2024. WLPGA — Autogas Technical Standards.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>What happens if a driver can't find an LPG station? Will the vehicle be stranded?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>LPG conversions in South Africa are <strong>bi-fuel systems</strong> — meaning the vehicle retains its full petrol tank and petrol fuel system, completely unchanged. When the LPG tank runs low or when no LPG station is available, the driver simply flicks a dashboard switch to revert to petrol operation. The transition is <strong>seamless and instantaneous</strong>. There is no stranding risk whatsoever.</p>
+              <p>For fleet operators running depot-based operations, a <strong>bulk LPG storage tank and dispenser installed at the depot</strong> means drivers refuel on-site at the start or end of every shift — no route deviation, no station dependency, no operational disruption.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>Stranding is not a risk with a bi-fuel LPG system. The petrol fallback is always available. For depot operators, on-site refuelling infrastructure removes even the marginal inconvenience of finding a public LPG station.</p>
+              </div>
+              <p class="faq-source">Source: drivelpautogas.co.za — Find Autogas Filling Stations.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>How long does the conversion take, and will our vehicles be off the road for days?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>The standard LPG conversion process is completed within <strong>1 to 2 working days per vehicle</strong>. The five steps are: complete a vehicle questionnaire; accept quote and remit payment; drop vehicle off at an RMI-approved, bi-fuel certified mechanic; pick up in 1–2 days; and immediately enjoy up to 45% in fuel savings.</p>
+              <p>For a fleet of 50 vehicles, a rolling conversion schedule means only a small number of vehicles are off the road at any one time. Conversions can be structured around <strong>scheduled service windows</strong> to ensure minimal disruption.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>The temporary downtime for conversion is measured in days per vehicle, not weeks. The savings it unlocks are measured in months and years. The ROI on operational disruption is overwhelmingly positive.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Is LPG safe? What are the fire and explosion risks?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>LPG has an excellent safety record, and the regulatory framework governing its use in vehicles is among the strictest in the automotive industry. Key facts:</p>
+              <ul class="faq-list">
+                <li>LPG fuel tanks are constructed from <strong>heavy-duty steel plates</strong> — structurally stronger than standard petrol tanks</li>
+                <li>In a collision, you are statistically <strong>less likely to incur a fuel leak</strong> from an LPG tank than from a petrol tank</li>
+                <li>LPG does <strong>not pose an explosion risk</strong> from heat exposure (e.g. a vehicle parked in the sun) — a common misconception</li>
+                <li>LPG is <strong>non-corrosive and additive-free</strong>, reducing the risk of fuel-line degradation over time</li>
+                <li>LPG is wholly non-toxic as a gas; it produces almost no particulates when burned, and helps reduce NOx emissions</li>
+              </ul>
+              <p>All South African installations must comply with <strong>SANS 10087-6:2023</strong>. Upon completion, a Certificate of Conformance (CoC) is issued — both a safety document and a legal requirement for your insurer.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>LPG is not riskier than petrol — in several measurable respects, it is safer. The safety regulations governing its installation are strict, verified, and enforced through a formal certification process.</p>
+              </div>
+              <p class="faq-source">Source: SANS 10087-6:2023. WLPGA Safety Guidelines.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-group reveal">
+        <p class="faq-category">Legal, Warranty &amp; Insurance Questions</p>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Will converting our vehicles to LPG void the manufacturer's warranty?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>A compliant LPG conversion <strong>does not automatically void a vehicle's manufacturer warranty</strong>. The base vehicle's warranty remains in force for all components unaffected by the conversion. The LPG system itself is warranted separately by the kit manufacturer and installer.</p>
+              <p>Crucially, OEM-level precedent now exists in South Africa. <strong>DFSK South Africa</strong> has formally introduced an approved LPG Autogas conversion solution and confirmed that the conversion does not affect the vehicle warranty when fitted according to their standards. Systems come with a <strong>2-year warranty from the date of installation</strong> covering manufacturing defects and operational issues arising from prescribed use.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>The warranty concern, while understandable, is addressable. A properly specified, compliantly installed LPG system from a reputable supplier does not void your vehicle's base warranty. Ask your conversion provider for vehicle-specific warranty confirmation in writing.</p>
+              </div>
+              <p class="faq-source">Source: DFSK South Africa LPG Autogas Announcement, April 2026. Autolady Engineering — Autogas Africa FAQs, 2021.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Will our vehicle insurance still cover us after conversion?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Yes, subject to one critical step: you must <strong>notify your insurer immediately after installation</strong> and provide them with the Certificate of Conformance (CoC). The CoC confirms that the work was carried out by an RMI-approved mechanic in compliance with SANS 10087-6:2023. Submitting this to your insurer is both a legal requirement and the mechanism by which your insurer formally acknowledges and records the modification.</p>
+              <p>Insurer acceptance of LPG systems as an aftermarket add-on is common in the South African market — however, it is not universal and should be verified directly with your insurer as part of the pre-conversion process.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>Insurance coverage after a compliant LPG conversion is the norm, not the exception. The single action required is immediate submission of the CoC to your insurer post-installation. Any conversion provider worth working with will walk you through this process.</p>
+              </div>
+              <p class="faq-source">Source: SANS 10087-6:2023. stargas.co.za LPG Installation Terms.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Is this legal in South Africa? Is there a regulatory framework governing LPG vehicle conversions?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Yes. LPG vehicle conversions are <strong>legal and regulated</strong> in South Africa. The regulatory framework is clear:</p>
+              <ul class="faq-list">
+                <li><strong>SANS 10087-6:2023</strong> — the South African National Standard governing LPG vehicle system installation and operation</li>
+                <li><strong>RMI-approved installer</strong> — the conversion must be carried out by a Retail Motor Industry Organisation approved mechanic with LPG installation certification</li>
+                <li><strong>Certificate of Conformance (CoC)</strong> — issued post-installation, confirming regulatory compliance; must be submitted to your insurer</li>
+                <li><strong>DMRE oversight</strong> — the Department of Mineral Resources and Energy's Draft Gas Master Plan 2024 signals increasing policy support for LPG as a transport fuel</li>
+              </ul>
+              <p>Reputable conversion kits are manufactured to <strong>ECE 67R-01 and ECE 110R-00</strong> standards (United Nations Economic Commission for Europe) — the highest available international benchmark for LPG vehicle system safety and performance.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>LPG conversions in South Africa operate within a well-defined regulatory framework. Compliance is not complex when using a qualified installer — it is a structured, documented process with a formal end-point (the CoC) that gives your organisation a clean legal and insurance record.</p>
+              </div>
+              <p class="faq-source">Source: SANS 10087-6:2023. LPGSA. DMRE Draft Gas Master Plan 2024. ICLG Oil &amp; Gas Regulation South Africa 2026. ECE 67R-01 / ECE 110R-00 UNECE standards.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-group reveal">
+        <p class="faq-category">Strategic &amp; Competitive Questions</p>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>If this is so compelling, why aren't more South African fleets already running on LPG?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>LPG adoption in South Africa has been held back by structural barriers that have nothing to do with the quality of the technology. Those barriers were: a fragmented public refuelling network; a decline in domestic LPG production following major refinery closures; lack of locally verified South African case studies; ambiguity around warranty and insurance; and the absence of a financing product that removes the upfront capital requirement.</p>
+              <p>All of these barriers are either already resolved or actively being resolved. Supply infrastructure is being reinforced through new rail logistics (Petredec/Transnet, September 2024); financing structures are available; case studies like Octotel now exist; and OEM precedents (DFSK South Africa, April 2026) have been established. In markets where these barriers were addressed earlier, LPG adoption scaled rapidly — <strong>Turkey converted 38% of its national car park; South Korea became the second-largest autogas market globally</strong>.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>The fact that most South African fleets have not yet converted is not evidence that the technology is unsuitable — it is evidence of a market waiting for the right commercial package. Your organisation moving now is not a risk; it is an early-mover advantage.</p>
+              </div>
+              <p class="faq-source">Source: LPG B2B Fleet Market Analysis — Corrected Edition (June 2026). Turkey LPG market: AYGAZ/OPET industry reporting. Petredec/Transnet Freight Rail, September 2024.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>What happens to petrol prices over the next few years? Is LPG pricing any more stable?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>South African petrol prices are structurally exposed to three forces with no realistic prospect of reversal: the <strong>rand/dollar exchange rate</strong>, the international crude oil price, and South Africa's fuel tax structure — which includes the General Fuel Levy and the Road Accident Fund levy. These levies are set by government and do not decrease.</p>
+              <p>LPG pricing is not immune to currency risk, but LPG has historically maintained its discount to petrol because it does not carry the same levy structure. Its pricing is regulated under a different mechanism (import parity pricing), and the structural gap between LPG and petrol has remained meaningful even through periods of price volatility. The commercial logic for converting is therefore not dependent on LPG becoming dramatically cheaper — it depends on the <strong>LPG discount to petrol remaining meaningful</strong>, which has been the case consistently.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>There is no credible scenario in which petrol becomes significantly cheaper for South African fleet operators over the medium term. LPG offers a durable, not a temporary, reduction in fuel expenditure.</p>
+              </div>
+              <p class="faq-source">Source: fuelsindustry.org.za. South African Department of Energy fuel price structure. LPGSA Value Chain. Argus Media, December 2025.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Does converting to LPG help us on environmental reporting or carbon reduction commitments?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Yes. LPG is among the <strong>lowest total carbon emission transport fuels</strong> currently available at commercial scale. It delivers an approximately <strong>20% reduction in CO₂ emissions</strong> compared to petrol or diesel on a like-for-like basis. Additionally, LPG burns almost without particulates and reduces NOx emissions — nitrogen oxide compounds linked to urban air quality degradation and respiratory disease.</p>
+              <p>For fleet operators working toward <strong>ESG reporting requirements</strong>, or subject to client or tender requirements specifying emissions reduction, LPG conversion provides a documentable, quantifiable, and immediately implementable pathway to lower your fleet's carbon footprint. It does not require replacing vehicles or purchasing new equipment.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>LPG conversion is the fastest and cheapest way available to a South African fleet operator to reduce scope 1 emissions at scale, without disrupting operations or replacing the existing fleet. For organisations with ESG obligations, this is a strategic advantage, not just a fuel cost exercise.</p>
+              </div>
+              <p class="faq-source">Source: WLPGA — LPG and Climate Change. SANS 10087-6:2023.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>How do we get started? What is the process from first conversation to converted fleet?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>The conversion process is structured, documented, and low-friction when managed by an experienced provider. The end-to-end journey for a B2B fleet client involves five stages:</p>
+              <ol class="faq-list faq-list-ol">
+                <li><strong>Fleet suitability assessment</strong> — a vehicle questionnaire determines which vehicles are suitable, the appropriate tank size and installation design, and the projected savings for your specific fleet</li>
+                <li><strong>Commercial proposal</strong> — a formal proposal showing total conversion cost, financing options, projected monthly savings, payback period, and net annual benefit in rands</li>
+                <li><strong>Installation</strong> — vehicles are dropped off at the RMI-approved, LPG-certified mechanic. Installation takes 1–2 working days per vehicle, with a rolling schedule to minimise fleet downtime</li>
+                <li><strong>Compliance documentation</strong> — on completion, a Certificate of Conformance (CoC) is issued for each vehicle and submitted to your insurer immediately</li>
+                <li><strong>Ongoing service</strong> — a post-conversion SLA provides defined maintenance intervals, emergency support, and a dedicated account manager</li>
+              </ol>
+              <p>The recommended first step for organisations with 10 or more vehicles is a <strong>Proof-of-Concept pilot</strong>: convert 1–2 vehicles first, track the fuel savings over 30 days, and use the results to build your internal business case.</p>
+              <div class="faq-bottomline">
+                <span class="faq-bl-label">The bottom line</span>
+                <p>Getting started requires a single conversation and a vehicle questionnaire. Everything after that is managed for you. The first step takes about 15 minutes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-cta reveal">
+        <a href="#contact" class="btn-primary">Get Your Free Fleet Assessment →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── SECTION 11: CONTACT ─── -->
   <section id="contact">
     <div class="contact-inner">
@@ -1488,6 +1973,25 @@
     }
 
     calculate();
+
+    // ─── FAQ ACCORDION ───
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer  = btn.nextElementSibling;
+        const isOpen  = btn.getAttribute('aria-expanded') === 'true';
+
+        // close all others
+        document.querySelectorAll('.faq-q[aria-expanded="true"]').forEach(other => {
+          if (other !== btn) {
+            other.setAttribute('aria-expanded', 'false');
+            other.nextElementSibling.classList.remove('open');
+          }
+        });
+
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        answer.classList.toggle('open', !isOpen);
+      });
+    });
   </script>
 </body>
 </html>
