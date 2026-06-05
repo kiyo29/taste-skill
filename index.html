@@ -280,6 +280,21 @@
       text-transform: uppercase;
       margin-bottom: 24px;
     }
+    .section-label-accent {
+      display: inline-block;
+      position: relative;
+      padding-bottom: 14px;
+    }
+    .section-label-accent::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 32px;
+      height: 1.5px;
+      background: #000000;
+    }
     .stat-hero {
       font-family: var(--font-display);
       font-style: italic;
@@ -1263,7 +1278,7 @@
   <!-- ─── SECTION 2: THE NUMBER ─── -->
   <section id="the-number">
     <div>
-      <p class="section-label reveal" style="color:#000000;text-decoration:underline;text-underline-offset:4px;">The Case for Autogas</p>
+      <p class="section-label reveal" style="color:#000000;"><span class="section-label-accent">The Case for Autogas</span></p>
       <div class="stat-hero reveal" id="counter-el">0<span class="pct">%</span></div>
       <span class="rule-accent reveal" style="width:70px;"></span>
       <p class="body-copy reveal">
