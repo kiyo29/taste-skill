@@ -82,12 +82,34 @@
     .nav-logo-img-wrap {
       display: inline-flex;
       align-items: center;
+      gap: 10px;
     }
     .nav-logo-img-wrap img {
-      height: 88px;
+      height: 36px;
       width: auto;
       display: block;
-      mix-blend-mode: multiply;
+    }
+    .nav-logo-wordmark {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .nav-logo-name {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 15px;
+      letter-spacing: 0.22em;
+      color: var(--text-navy);
+      text-transform: uppercase;
+    }
+    .nav-logo-sub {
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 7px;
+      letter-spacing: 0.25em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 3px;
     }
     .nav-links {
       display: flex;
@@ -160,19 +182,41 @@
       padding: 0 24px;
     }
     .hero-logo-wrap {
-      display: inline-block;
-      background: rgba(255,255,255,0.95);
-      padding: 14px 28px;
-      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
       margin-bottom: 32px;
       opacity: 0;
       animation: fadeIn 0.8s ease forwards 0s;
-      box-shadow: 0 6px 32px rgba(0,0,0,0.18);
     }
     .hero-logo-wrap img {
-      height: 52px;
+      height: 64px;
       width: auto;
       display: block;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+    }
+    .hero-logo-text {
+      text-align: left;
+    }
+    .hero-logo-text .hero-logo-name {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 22px;
+      letter-spacing: 0.25em;
+      color: #ffffff;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .hero-logo-text .hero-logo-sub {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      margin-top: 5px;
     }
     .hero-rule {
       width: 0;
@@ -771,13 +815,35 @@
     }
     .about-cta:hover { text-decoration: underline; }
     .about-logo-wrap {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       margin-top: 40px;
     }
     .about-logo-wrap img {
-      height: 44px;
+      height: 48px;
       width: auto;
       display: block;
+    }
+    .about-logo-wordmark { line-height: 1; }
+    .about-logo-wordmark span:first-child {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 16px;
+      letter-spacing: 0.2em;
+      color: var(--text-navy);
+      text-transform: uppercase;
+    }
+    .about-logo-wordmark span:last-child {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 7.5px;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 4px;
     }
 
     /* ─── SECTION 10: CREDENTIALS ─── */
@@ -909,16 +975,35 @@
       margin-bottom: 32px;
     }
     .footer-logo-wrap {
-      background: white;
-      padding: 10px 20px;
-      border-radius: 3px;
       display: inline-flex;
       align-items: center;
+      gap: 12px;
     }
     .footer-logo-wrap img {
-      height: 38px;
+      height: 44px;
       width: auto;
       display: block;
+      filter: brightness(0) invert(1) opacity(0.9);
+    }
+    .footer-logo-wordmark { line-height: 1; }
+    .footer-logo-wordmark span:first-child {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 15px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.9);
+      text-transform: uppercase;
+    }
+    .footer-logo-wordmark span:last-child {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 200;
+      font-size: 7.5px;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      margin-top: 4px;
     }
     .footer-links {
       font-family: var(--font-body);
@@ -1227,7 +1312,11 @@
   <nav id="nav">
     <a href="#hero" class="nav-logo">
       <span class="nav-logo-img-wrap">
-        <img src="vula-energy-logo.png" alt="Vula Energy">
+        <img src="vula-flame.svg" alt="Vula Energy flame">
+        <span class="nav-logo-wordmark">
+          <span class="nav-logo-name">Vula Energy</span>
+          <span class="nav-logo-sub">Autogas Conversion Specialists</span>
+        </span>
       </span>
     </a>
     <div class="hamburger" id="hamburger" aria-label="Menu">
@@ -1249,7 +1338,11 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-logo-wrap">
-        <img src="vula-energy-logo.png" alt="Vula Energy" width="300">
+        <img src="vula-flame.svg" alt="Vula Energy">
+        <div class="hero-logo-text">
+          <span class="hero-logo-name">Vula Energy</span>
+          <span class="hero-logo-sub">Autogas Conversion Specialists</span>
+        </div>
       </div>
       <div class="hero-rule"></div>
       <h1 class="hero-headline">UNLOCK<br>THE GAS.</h1>
@@ -1451,7 +1544,11 @@
         <h2 class="about-title reveal">Why We Do<br>What We Do.</h2>
         <span class="rule-accent reveal" style="width:48px;display:block;margin-bottom:40px;"></span>
         <div class="about-logo-wrap reveal">
-          <img src="vula-energy-logo.png" alt="Vula Energy">
+          <img src="vula-flame.svg" alt="Vula Energy">
+          <div class="about-logo-wordmark">
+            <span>Vula Energy</span>
+            <span>Autogas Conversion Specialists</span>
+          </div>
         </div>
       </div>
       <div>
@@ -1859,7 +1956,11 @@
   <footer>
     <div class="footer-row1">
       <div class="footer-logo-wrap">
-        <img src="vula-energy-logo.png" alt="Vula Energy" width="220">
+        <img src="vula-flame.svg" alt="Vula Energy">
+        <div class="footer-logo-wordmark">
+          <span>Vula Energy</span>
+          <span>Autogas Conversion Specialists</span>
+        </div>
       </div>
       <p class="footer-links">Conversions · Technology · Savings · About · Contact</p>
     </div>
