@@ -86,7 +86,8 @@
       align-items: center;
     }
     .nav-logo-img-wrap img {
-      height: 36px;
+      height: 34px;
+      width: auto;
       display: block;
     }
     .nav-links {
@@ -161,15 +162,19 @@
     }
     .hero-logo-wrap {
       display: inline-block;
-      background: rgba(255,255,255,0.92);
-      padding: 12px 24px;
-      border-radius: 6px;
+      background: rgba(255,255,255,0.95);
+      padding: 14px 28px;
+      border-radius: 4px;
       margin-bottom: 32px;
       opacity: 0;
       animation: fadeIn 0.8s ease forwards 0s;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 32px rgba(0,0,0,0.18);
     }
-    .hero-logo-wrap img { height: 120px; display: block; }
+    .hero-logo-wrap img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
     .hero-rule {
       width: 0;
       height: 2px;
@@ -770,7 +775,11 @@
       display: inline-block;
       margin-top: 40px;
     }
-    .about-logo-wrap img { height: 80px; display: block; }
+    .about-logo-wrap img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
 
     /* ─── SECTION 10: CREDENTIALS ─── */
     #credentials {
@@ -902,12 +911,16 @@
     }
     .footer-logo-wrap {
       background: white;
-      padding: 6px 12px;
+      padding: 10px 20px;
       border-radius: 3px;
       display: inline-flex;
       align-items: center;
     }
-    .footer-logo-wrap img { height: 56px; display: block; }
+    .footer-logo-wrap img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
     .footer-links {
       font-family: var(--font-body);
       font-weight: 200;
@@ -1166,7 +1179,7 @@
       .hamburger { display: flex; z-index: 1001; }
       .hero-headline { font-size: 18vw; }
       .hero-sub { font-size: 9px; letter-spacing: 0.2em; }
-      .hero-logo-wrap img { height: 80px; }
+      .hero-logo-wrap img { height: 40px; }
       .stat-hero { font-size: 22vw; }
       .section-label { font-size: 9px; }
       #the-number { padding: 60px 24px; }
@@ -1215,7 +1228,7 @@
   <nav id="nav">
     <a href="#hero" class="nav-logo">
       <span class="nav-logo-img-wrap">
-        <img src="vula-energy-logo.png" alt="Vula Energy" height="32">
+        <img src="vula-energy-logo.png" alt="Vula Energy">
       </span>
     </a>
     <div class="hamburger" id="hamburger" aria-label="Menu">
@@ -1237,7 +1250,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-logo-wrap">
-        <img src="vula-energy-logo.png" alt="Vula Energy">
+        <img src="vula-energy-logo.png" alt="Vula Energy" width="300">
       </div>
       <div class="hero-rule"></div>
       <h1 class="hero-headline">UNLOCK<br>THE GAS.</h1>
@@ -1439,7 +1452,7 @@
         <h2 class="about-title reveal">Why We Do<br>What We Do.</h2>
         <span class="rule-accent reveal" style="width:48px;display:block;margin-bottom:40px;"></span>
         <div class="about-logo-wrap reveal">
-          <img src="vula-energy-logo.png" alt="Vula Energy" height="80">
+          <img src="vula-energy-logo.png" alt="Vula Energy">
         </div>
       </div>
       <div>
@@ -1847,7 +1860,7 @@
   <footer>
     <div class="footer-row1">
       <div class="footer-logo-wrap">
-        <img src="vula-energy-logo.png" alt="Vula Energy" height="56">
+        <img src="vula-energy-logo.png" alt="Vula Energy" width="220">
       </div>
       <p class="footer-links">Conversions · Technology · Savings · About · Contact</p>
     </div>
