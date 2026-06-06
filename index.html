@@ -625,8 +625,9 @@
     }
     input[type="number"]:focus { border-bottom-color: var(--green); }
     .number-input-wrap {
-      display: flex;
-      align-items: flex-end;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: end;
       gap: 24px;
     }
     .number-input-group { flex: 1; }
@@ -1335,21 +1336,15 @@
       <h2 class="calc-title reveal">How much are you leaving<br>on the table?</h2>
     </div>
     <div class="calc-inner">
-      <div class="calc-row reveal">
-        <div class="calc-row-left">
-          <label class="calc-input-label" for="slider-vehicles">Vehicles in Your Fleet</label>
-          <input type="range" id="slider-vehicles" min="1" max="200" value="10" step="1">
-        </div>
-        <div class="calc-value" id="val-vehicles">10</div>
-      </div>
-      <div class="calc-row reveal">
-        <div class="calc-row-left">
-          <label class="calc-input-label" for="slider-km">Kilometres per Vehicle / Month</label>
-          <input type="range" id="slider-km" min="500" max="10000" value="3000" step="100">
-        </div>
-        <div class="calc-value" id="val-km">3,000 km</div>
-      </div>
       <div class="number-input-wrap reveal">
+        <div class="number-input-group">
+          <label class="calc-input-label" for="slider-vehicles">Vehicles in Your Fleet</label>
+          <input type="number" id="slider-vehicles" value="10" min="1" max="200" step="1">
+        </div>
+        <div class="number-input-group">
+          <label class="calc-input-label" for="slider-km">Kilometres per Vehicle / Month</label>
+          <input type="number" id="slider-km" value="3000" min="100" max="50000" step="100">
+        </div>
         <div class="number-input-group">
           <label class="calc-input-label" for="input-petrol">Current Petrol Price (R/litre)</label>
           <input type="number" id="input-petrol" value="24.50" step="0.10" min="0">
@@ -1943,20 +1938,12 @@
     const sliderKm       = document.getElementById('slider-km');
     const inputPetrol    = document.getElementById('input-petrol');
     const inputLPG       = document.getElementById('input-lpg');
-    const valVehicles    = document.getElementById('val-vehicles');
-    const valKm          = document.getElementById('val-km');
     const outputMonthly  = document.getElementById('output-monthly');
     const outputAnnual   = document.getElementById('output-annual');
     const outputPayback  = document.getElementById('output-payback');
 
-    sliderVehicles.addEventListener('input', () => {
-      valVehicles.textContent = parseInt(sliderVehicles.value).toLocaleString('en-ZA');
-      calculate();
-    });
-    sliderKm.addEventListener('input', () => {
-      valKm.textContent = parseInt(sliderKm.value).toLocaleString('en-ZA') + ' km';
-      calculate();
-    });
+    sliderVehicles.addEventListener('input', calculate);
+    sliderKm.addEventListener('input', calculate);
     inputPetrol.addEventListener('input', calculate);
     inputLPG.addEventListener('input', calculate);
 
