@@ -1418,7 +1418,7 @@
         </div>
         <div class="output-divider"></div>
         <p class="output-payback">
-          Estimated payback period: <strong id="output-payback" style="color:var(--text-dark)">— months</strong> · Based on R26,000/vehicle conversion (ex. VAT)
+          Estimated payback period: <strong id="output-payback" style="color:var(--text-dark)">— months</strong> · Based on R27,999.00/vehicle conversion (ex. VAT)
         </p>
       </div>
 
@@ -2013,7 +2013,7 @@
       const savingPerVehicle        = monthlyPetrolPerVehicle - monthlyLPGPerVehicle;
       const monthlyFleetSaving      = savingPerVehicle * vehicles;
       const annualFleetSaving       = monthlyFleetSaving * 12;
-      const conversionCost          = 26000 * vehicles;
+      const conversionCost          = 27999 * vehicles;
       const paybackMonths           = (savingPerVehicle > 0 && monthlyFleetSaving > 0)
         ? Math.round(conversionCost / monthlyFleetSaving)
         : 0;
