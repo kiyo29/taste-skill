@@ -770,8 +770,18 @@
     #about {
       background: var(--bg-white) url('About Us.svg') center top / cover no-repeat;
       padding: 44px 60px 60px;
+      position: relative;
+    }
+    #about::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.38);
+      pointer-events: none;
     }
     .about-grid {
+      position: relative;
+      z-index: 1;
       display: block;
       max-width: 560px;
     }
