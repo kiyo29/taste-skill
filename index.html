@@ -1252,6 +1252,29 @@
       .footer-social { text-align: left; }
       .number-input-wrap { flex-direction: column; gap: 16px; }
     }
+    /* ─── SCROLL TO TOP ─── */
+    #scroll-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 44px;
+      height: 44px;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.2s ease;
+      z-index: 999;
+    }
+    #scroll-top.visible { opacity: 1; pointer-events: auto; }
+    #scroll-top:hover { transform: translateY(-3px); }
+    #scroll-top svg { display: block; }
   </style>
 </head>
 <body>
@@ -1990,6 +2013,18 @@
         btn.setAttribute('aria-expanded', String(!isOpen));
         answer.classList.toggle('open', !isOpen);
       });
+    });
+  </script>
+
+  <button id="scroll-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 12V4M8 4L4 8M8 4L12 8" stroke="#2e8b3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <script>
+    const scrollBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('visible', window.scrollY > 300);
     });
   </script>
 </body>
