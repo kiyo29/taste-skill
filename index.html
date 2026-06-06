@@ -574,7 +574,12 @@
       display: block;
       text-align: center;
     }
-    .number-input-group { text-align: center; }
+    .number-input-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
     input[type="range"] {
       -webkit-appearance: none;
       width: 100%;
@@ -637,7 +642,6 @@
       align-items: end;
       gap: 24px;
     }
-    .number-input-group { flex: 1; }
     .calc-output {
       background: #fff;
       border: 1px solid var(--border-green);
