@@ -538,7 +538,7 @@
     /* ─── SECTION 7: CALCULATOR ─── */
     #calculator {
       background: #ffffff;
-      padding: 80px 60px;
+      padding: 48px 60px;
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
       display: flex;
@@ -546,14 +546,14 @@
       align-items: center;
       text-align: center;
     }
-    .calc-header { margin-bottom: 56px; }
+    .calc-header { margin-bottom: 32px; }
     .calc-title {
       font-family: var(--font-display);
       font-weight: 200;
-      font-size: 2.6vw;
+      font-size: 2.2vw;
       color: var(--text-navy);
-      margin-top: 8px;
-      line-height: 1.15;
+      margin-top: 4px;
+      line-height: 1.1;
     }
     .calc-inner { max-width: 1200px; width: 100%; }
     .calc-row {
@@ -649,51 +649,51 @@
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       align-items: end;
-      gap: 24px;
-      margin-bottom: 56px;
+      gap: 16px;
+      margin-bottom: 32px;
     }
     .calc-output {
       background: var(--bg-light);
       border: 1px solid var(--border-green);
-      padding: 48px 60px;
-      margin: 0 auto 24px;
+      padding: 32px 48px;
+      margin: 0 auto 20px;
       border-radius: 0;
       box-shadow: none;
       width: 100%;
       max-width: 1100px;
     }
     .calc-capex-section {
-      padding: 32px 0;
-      margin-bottom: 32px;
+      padding: 20px 0;
+      margin-bottom: 20px;
       border-bottom: 1px solid var(--border-green);
     }
     .calc-capex-label {
       font-family: var(--font-body);
       font-weight: 300;
-      font-size: 9px;
+      font-size: 8px;
       letter-spacing: 0.25em;
       color: var(--text-mid);
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     .calc-capex-value {
       font-family: var(--font-display);
       font-style: italic;
       font-weight: 200;
-      font-size: 3.6vw;
+      font-size: 3vw;
       color: var(--text-navy);
       line-height: 1;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
     .output-cols {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 32px;
+      gap: 32px;
+      margin-bottom: 20px;
     }
     .output-col {
       text-align: left;
-      padding: 24px;
+      padding: 16px;
       background: #ffffff;
       border: 1px solid var(--border-light);
       border-radius: 0;
@@ -701,28 +701,28 @@
     .output-label {
       font-family: var(--font-body);
       font-weight: 300;
-      font-size: 9px;
+      font-size: 8px;
       letter-spacing: 0.25em;
       color: var(--text-mid);
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     .output-value {
       font-family: var(--font-display);
       font-style: italic;
       font-weight: 200;
-      font-size: 2.4vw;
+      font-size: 2vw;
       color: var(--text-navy);
       line-height: 1;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       transition: all 0.3s ease;
     }
     .output-subtext {
       font-family: var(--font-body);
       font-weight: 300;
-      font-size: 11px;
+      font-size: 10px;
       color: var(--text-mid);
-      line-height: 1.5;
+      line-height: 1.4;
     }
     .output-value-underline {
       height: 1px;
@@ -731,8 +731,8 @@
       width: 80%;
     }
     .payback-timeline {
-      padding: 32px 0;
-      margin: 32px 0;
+      padding: 20px 0;
+      margin: 20px 0;
       text-align: center;
       border-top: 1px solid var(--border-green);
       border-bottom: 1px solid var(--border-green);
@@ -740,20 +740,20 @@
     .payback-label {
       font-family: var(--font-body);
       font-weight: 300;
-      font-size: 9px;
+      font-size: 8px;
       letter-spacing: 0.25em;
       color: var(--text-mid);
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
     .payback-bar {
       width: 100%;
-      max-width: 600px;
-      height: 10px;
+      max-width: 500px;
+      height: 8px;
       background: rgba(26,58,122,0.10);
       border-radius: 0;
       overflow: hidden;
-      margin: 0 auto 16px;
+      margin: 0 auto 12px;
     }
     .payback-fill {
       height: 100%;
@@ -764,39 +764,39 @@
     .payback-months {
       font-family: var(--font-display);
       font-weight: 200;
-      font-size: 2.2vw;
+      font-size: 1.8vw;
       color: var(--green);
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
     .output-payback {
       font-family: var(--font-body);
       font-weight: 300;
-      font-size: 11px;
+      font-size: 10px;
       color: var(--text-mid);
       text-align: center;
     }
     .sensitivity-note {
       font-family: var(--font-body);
       font-weight: 300;
-      font-size: 10px;
+      font-size: 9px;
       color: var(--text-mid);
       font-style: italic;
-      margin-top: 16px;
-      padding-top: 16px;
+      margin-top: 8px;
+      padding-top: 8px;
       border-top: 1px solid rgba(26,58,122,0.08);
     }
     .calc-footnote {
       font-family: var(--font-body);
       font-weight: 200;
-      font-size: 11px;
+      font-size: 10px;
       color: #b0b0b0;
       text-align: center;
-      margin-top: 16px;
+      margin-top: 12px;
     }
     .calc-cta {
       display: flex;
       justify-content: center;
-      margin-top: 32px;
+      margin-top: 16px;
     }
 
     /* ─── SECTION 8: PROOF ─── */
@@ -1534,8 +1534,8 @@
           <p class="calc-capex-value" id="calc-total-capex">R 0</p>
         </div>
 
-        <div style="padding: 32px 0; margin-bottom: 32px;">
-          <p style="font-family:var(--font-body);font-weight:300;font-size:9px;letter-spacing:0.25em;color:var(--text-mid);text-transform:uppercase;margin-bottom:24px;">Annual Operating Cost Comparison</p>
+        <div style="padding: 20px 0; margin-bottom: 20px;">
+          <p style="font-family:var(--font-body);font-weight:300;font-size:8px;letter-spacing:0.25em;color:var(--text-mid);text-transform:uppercase;margin-bottom:16px;">Annual Operating Cost Comparison</p>
           <div class="output-cols">
             <div class="output-col">
               <p class="output-label">Annual Petrol Cost</p>
@@ -1548,13 +1548,13 @@
               <p class="output-subtext">After LPG conversion</p>
             </div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:24px;background:#fff;border:1px solid var(--border-light);">
-            <div style="text-align:right;padding-right:24px;border-right:2px solid var(--border-green);">
-              <p style="font-family:var(--font-body);font-weight:300;font-size:9px;letter-spacing:0.25em;color:var(--text-mid);text-transform:uppercase;margin-bottom:8px;">Annual Fleet Saving</p>
-              <p style="font-family:var(--font-display);font-style:italic;font-weight:200;font-size:3.2vw;color:var(--green);" id="output-annual">R 0</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;padding:16px;background:#fff;border:1px solid var(--border-light);">
+            <div style="text-align:right;padding-right:16px;border-right:2px solid var(--border-green);">
+              <p style="font-family:var(--font-body);font-weight:300;font-size:8px;letter-spacing:0.25em;color:var(--text-mid);text-transform:uppercase;margin-bottom:6px;">Annual Fleet Saving</p>
+              <p style="font-family:var(--font-display);font-style:italic;font-weight:200;font-size:2.6vw;color:var(--green);" id="output-annual">R 0</p>
             </div>
-            <div style="text-align:left;padding-left:24px;">
-              <p style="font-family:var(--font-body);font-weight:300;font-size:11px;color:var(--text-mid);line-height:1.6;">This represents your operational cost reduction vs. petrol, calculated conservatively based on current fuel pricing.</p>
+            <div style="text-align:left;padding-left:16px;">
+              <p style="font-family:var(--font-body);font-weight:300;font-size:10px;color:var(--text-mid);line-height:1.5;">This represents your operational cost reduction vs. petrol, calculated conservatively based on current fuel pricing.</p>
             </div>
           </div>
         </div>
