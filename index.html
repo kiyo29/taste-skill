@@ -2092,7 +2092,7 @@
       entries.forEach(entry => {
         if (entry.isIntersecting && !counterFired) {
           counterFired = true;
-          animateCounter(counterEl, 45, 2200);
+          animateCounter(counterEl, 45, 3000);
           counterObserver.unobserve(entry.target);
         }
       });
