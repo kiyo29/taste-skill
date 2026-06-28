@@ -156,6 +156,50 @@
       z-index: 2;
       text-align: center;
       padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100%;
+    }
+    .hero-text-overlay {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 60px;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards 0.6s;
+    }
+    .hero-text-main {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(40px, 8vw, 80px);
+      line-height: 1.1;
+      letter-spacing: 1px;
+      color: #ffffff;
+      text-transform: uppercase;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3);
+      margin: 0;
+    }
+    .hero-text-accent {
+      width: 120px;
+      height: 3px;
+      background: linear-gradient(90deg, #00D084 0%, #00D084 100%);
+      margin-top: 16px;
+      border-radius: 2px;
+      animation: slideInRight 0.6s ease forwards 1.2s;
+      animation-fill-mode: both;
+    }
+    @keyframes slideInRight {
+      from {
+        width: 0;
+        opacity: 0;
+      }
+      to {
+        width: 120px;
+        opacity: 1;
+      }
     }
     .hero-logo-wrap {
       display: inline-block;
@@ -1425,6 +1469,10 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
+      <div class="hero-text-overlay">
+        <h1 class="hero-text-main">UNLEASHED<br>FUEL SAVING</h1>
+        <div class="hero-text-accent"></div>
+      </div>
     </div>
   </section>
 
